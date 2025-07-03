@@ -1,0 +1,15 @@
+<img [src]="product.image" class="card-img-top" alt="Product Image" style="height: 200px; object-fit: cover;">
+
+<div class="card-body text-center">
+  
+  <h5 class="card-title">{{ product.productName }}</h5>
+  
+  <p class="text-success fw-bold">Price: {{ product.productPrice }} $</p>
+
+  @if (product.onSale) {
+    <span class="badge bg-primary">On Sale!</span>
+  } @else {
+    <span class="badge bg-danger">Out of Sale</span>
+  }
+
+</div>

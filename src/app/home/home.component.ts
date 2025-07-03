@@ -1,15 +1,20 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { ProductComponent } from "../product/product.component";
 import { CategoryComponent } from "../category/category.component";
 import { FooterComponent } from "../footer/footer.component";
+import { ProductServicesService } from '../services/product-services.service';
+import { Product } from '../interfaces/Product';
+import { ProductItemComponent } from "../product-item/product-item.component";
 
 @Component({
   selector: 'app-home',
-  imports: [NavbarComponent, ProductComponent, CategoryComponent, FooterComponent],
+  imports: [CategoryComponent, FooterComponent, ProductItemComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  products: Product[] = [];
 
+  constructor(private productService: ProductServicesService) {
+    this.products = this.productService.getAllProducts().slice(0, 3);
+  }
 }

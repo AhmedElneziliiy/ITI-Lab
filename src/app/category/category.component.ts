@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ProductComponent } from "../product/product.component";
 @Component({
   selector: 'app-category',
-  imports: [ProductComponent],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss'
 })
