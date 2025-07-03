@@ -1,0 +1,23 @@
+<app-product></app-product>
+<div id="carouselExampleControls" class="carousel slide btn" data-bs-ride="carousel"> 
+  <div class="carousel-inner" >
+    @for (item of items; track item.image; let i = $index) {
+      <div class="carousel-item" [class.active]="i === 0">
+        <img class="d-block w-100" [src]="item.image" alt="Product Image">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color: red; width: 300px;"><strong>Price: {{ item.price }} $</strong></h5>
+        </div>
+      </div>
+    }
+  </div>
+
+  <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="color: red;">
+    <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
