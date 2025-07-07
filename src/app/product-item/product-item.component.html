@@ -1,15 +1,10 @@
-<img [src]="product.image" class="card-img-top" alt="Product Image" style="height: 200px; object-fit: cover;">
-
-<div class="card-body text-center">
-  
-  <h5 class="card-title">{{ product.productName }}</h5>
-  
-  <p class="text-success fw-bold">Price: {{ product.productPrice }} $</p>
-
-  @if (product.onSale) {
-    <span class="badge bg-primary">On Sale!</span>
-  } @else {
-    <span class="badge bg-danger">Out of Sale</span>
-  }
-
+<div class="container">
+<div class="product-card">
+  <img [src]="productApi.image" width="100" height="100" alt="{{ productApi.title }}">
+  <h3>{{ productApi.title }}</h3>
+  <button class="btn btn-primary" [routerLink]="['/product', productApi.id]">View Details</button>
+  <p>{{ productApi.description }}</p>
+  <p>Price: ${{ productApi.price }}</p>
+  <p><strong>Rating: {{ productApi.rating.rate }} ({{ productApi.rating.count }} reviews)</strong></p>
+</div>
 </div>

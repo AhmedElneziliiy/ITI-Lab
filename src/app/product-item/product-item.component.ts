@@ -1,13 +1,20 @@
-import { Component, Input } from '@angular/core';
-import { Product } from '../interfaces/Product';
+import { CommonModule } from '@angular/common';
+import { Component, inject, Input, OnInit } from '@angular/core';
+import { ProductApi } from '../interfaces/product-api';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-item',
-  imports: [],
+  imports: [CommonModule,RouterModule],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.scss'
 })
-export class ProductItemComponent {
-@Input() product!: Product;
+export class ProductItemComponent implements OnInit {
 
+  @Input() productApi!:ProductApi;
+  
+  ngOnInit(): void {
+    console.log('ok :', this.productApi);
+  }
 }
